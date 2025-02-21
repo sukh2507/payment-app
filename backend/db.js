@@ -1,4 +1,4 @@
-const Unique = require('faker/lib/unique')
+
 const mongoose=require('mongoose')
 
 mongoose.connect("mongodb+srv://sukhbirsinghsareen:lhNGQonJXIWWQ34y@cluster0.mfkvcb1.mongodb.net/paytm").then(console.log("connected to mongodb"))
