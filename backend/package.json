@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "faker": "^5.5.3",
@@ -18,5 +19,8 @@
     "mongoose": "^8.10.0",
     "number-to-words": "^1.2.4",
     "zod": "^3.24.1"
+=======
+      
+>>>>>>> 4311aba (fetch balance resolved)
   }
 }

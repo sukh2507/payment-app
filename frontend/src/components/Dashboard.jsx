@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 // Oneuser Component
 function Oneuser({ user,name }) {
+  
   const navigate=useNavigate()
   return (
     <div className="flex justify-between mt-3">
@@ -73,6 +74,34 @@ function Users() {
   );
 }
 
+function Balance(){
+  const [balance,setbalance]=useState(0)
+  
+  useEffect( ()=>{
+    const fetchbalance =async ()=>{
+      try{
+    const response = await axios.get("http://localhost:3000/api/v1/account/balance",{
+      headers: {
+        authorization:`Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    setbalance(response.data)
+  }catch(e){
+    console.log(e)
+  }
+  } // fetch ends here
+  fetchbalance()
+  },[])
+
+return(
+  <>
+        <div className="text-black text-lg pl-5 font-bold mt-12">
+        Your Balance: <span className="text-green-600">$ {balance}</span>
+      </div>
+      </>
+)
+}
+
 // Dashboard Component
 export default function Dashboard() {
   return (
@@ -88,11 +117,10 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Balance Section */}
-      <div className="text-black text-lg pl-5 font-bold mt-12">
-        Your Balance: <span className="text-green-600">$5000</span>
-      </div>
 
+
+      {/* Balance Section */}
+      <Balance/>
       {/* Users List */}
       <Users />
     </div>

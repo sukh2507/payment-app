@@ -121,6 +121,7 @@ router.get('/getusers', async (req, res) => {
             _id: user._id
         }))
     });
+    
 });
 
 router.get('/bulk',authmiddleware,async (req,res)=>{
